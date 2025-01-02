@@ -1,0 +1,48 @@
+sudo apt update
+sudo apt-get install docker.io
+sudo apt install nano
+sudo apt install git 
+
+
+git init
+git add .
+git commit -m "firstcommit"
+
+create repo in GitHub
+
+-->
+-->
+-->
+
+
+git clone ....
+ls
+--->cd AWS
+ls
+
+nano Dockerfile
+
+FROM nginx:alpine
+COPY . /usr/share/nginx/html
+
+
+sudo docker build -t pro .
+
+sudo docker run -d -p 80:80 pro
+
+sudo docker run -d -p 9090:8080 webpro
+
+
+
+AWS MAVEN WEB PUBLIC LINK:              
+http://54.163.220.53:8080/maven_web_java2/
+
+
+AWS INDEX.HTML PUBLIC LINK:                
+http://184.72.126.166
+
+
+FROM tomcat:9-jdk11
+COPY target/*.war /usr/local/tomcat/webapps/
+
+

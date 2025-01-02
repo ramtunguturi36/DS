@@ -1,0 +1,73 @@
+docker --version
+
+docker pull hello-world
+docker pull redis
+
+docker images
+
+docker run hello-world
+docker run --name newredis -d redis
+
+docker ps -a
+docker ps
+
+docker rm ..id..
+docker rmi ..name..
+
+docker exec -it newredis redis-cli
+exit
+
+docker stop ..id..
+
+
+*****folder>>folder>>file
+
+no extension
+
+Dockerfile
+
+FROM redis:latest
+CMD ["redis-server"]
+
+docker build -t myredis .
+
+
+before commit stop 
+
+docker commit  ...id.. ramtunguturi36/newredisimages
+
+docker login
+docker push ramtunguturi36/newredisimages
+
+we can delete and again pull with name we gave
+
+----------modify and push
+
+docker pull ubuntu
+
+docker run -it --name newub -d ubuntu
+
+docker exec -it ..id.. bash
+
+-->git --version
+apt update
+apt install git -y
+
+
+create a file .js with Dockerfile
+
+
+FROM node:16-alpine
+WORKDIR /app
+COPY calculator.js /app
+CMD ["node", "calculator.js"]
+
+
+docker run simple-calculator
+docker login
+docker tag ..id.. name
+docker push name
+
+
+once delete/remove and pull and run for fine checking
+

@@ -1,0 +1,79 @@
+compose>>docker-compose.yaml
+
+https://gist.github.com/bradtraversy/faa8de544c62eef3f31de406982f1d42
+
+docker-compose up -d
+docker-compose start
+docker-compose stop
+docker-compose down
+
+
+------------------------
+minikube start
+
+kubectl create deployment mynginx  --image=nginx
+
+kubectl get deployments
+
+kubectl expose deployment mynginx --type=NodePort --port=80 --target-port=80
+
+kubectl scale deployment mynginx --replicas=4
+
+kubectl get pods
+
+kubectl port-forward svc/mynginx 8081:80
+
+
+minikube dashboard
+
+
+kubectl delete deployment mynginx
+
+kubectl delete service mynginx
+
+minikube stop
+
+----------------------------------------
+
+docker pull jasonrivers/nagios:latest
+
+docker run --name ngiosdemo -p 8888:80 jasonrivers/nagios:latest
+
+**nagiosadmin
+
+
+-----------------------------------------
+
+version: '3.9'
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wpuser
+      MYSQL_PASSWORD: wppassword
+    volumes:
+      - db_data:/var/lib/mysql
+
+  wordpress:
+    image: wordpress:latest
+    container_name: wordpress
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wpuser
+      WORDPRESS_DB_PASSWORD: wppassword
+      WORDPRESS_DB_NAME: wordpress
+
+volumes:
+  db_data:
+
+
