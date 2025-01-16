@@ -1,0 +1,87 @@
+1. Ubuntu
+
+docker run -it ubuntu bash
+
+
+2. Ubuntu with Git
+
+FROM ubuntu
+RUN apt-get update && apt-get install -y git
+docker build -t ubuntu-with-git .
+docker run -it ubuntu-with-git bash
+
+
+3. Tomcat
+
+
+docker pull tomcat
+docker run -d -p 8080:8080 tomcat
+
+
+4. WordPress
+
+
+version: '3.1'
+
+services:
+  wordpress:
+    image: wordpress
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: exampledb
+      WORDPRESS_DB_USER: exampleuser
+      WORDPRESS_DB_PASSWORD: examplepassword
+    networks:
+      - wordpress-net
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: examplepassword
+    networks:
+      - wordpress-net
+
+networks:
+  wordpress-net:
+    driver: bridge
+
+docker-compose up
+
+5. Nginx
+
+docker run -d -p 80:80 nginx
+
+
+6. Python
+
+
+docker run -it python bash
+
+
+7. Redis
+
+docker run -d -p 6379:6379 redis
+
+
+8. MySQL
+
+
+docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=rootpassword MySQL
+
+
+9. Node.js
+
+docker run -it node bash
+
+FROM node:16
+WORKDIR /app
+COPY . /app
+RUN npm install
+CMD ["node", "app.js"]
+
+
+docker build -t my-node-app .
+docker run -p 3000:3000 my-node-app
+
+

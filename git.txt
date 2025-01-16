@@ -1,0 +1,58 @@
+git --version
+
+git status
+git config --global user.name ""
+git config --global user.email ""
+git config --list
+
+git init
+git add .
+git commit -m "firstcommit"
+
+git diff
+
+git log
+
+git log --oneline
+
+git reset
+
+git restore 
+
+
+git branch master
+
+git checkout main
+
+git merge hello
+
+git revert <code>
+
+
+git remote -v
+
+
+26. Generating SSH key : Create a new SSH key pair using ssh-keygen -t rsa -C "<email>".
+
+27. SSH key stored at c/users/91801/.ssh/id_rsa : The private SSH key is stored in this default
+location( c/users/91801/.ssh/id_rsa).
+
+
+28. The SSH Key that was generated: The public key (id_rsa.pub) is generated for GitHub
+authentication.
+
+
+29. Goto Github and navigate to SSH and GPG and add new SSH key: Add your public key to
+GitHub under SSH settings.
+
+
+30. SSH key successfully added: The key is successfully added to GitHub for secure access.
+
+
+git clone
+
+
+git pull
+
+
+fork
